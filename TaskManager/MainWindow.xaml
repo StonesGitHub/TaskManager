@@ -5,15 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="600">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="13*"/>
-            <RowDefinition Height="67*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Label Content="Task Manager"/>
-        <DataGrid Grid.Row="1" DataContext="{Binding}" ItemsSource="{Binding}">
-            
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" DataContext="{Binding TaskCollections}" SelectedItem="{Binding SelectedTask}" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Task Name" Binding="{Binding TaskName}"/>
+                <DataGridTextColumn Header="Task Note" Width="300" Binding="{Binding TaskNote}"/>
+            </DataGrid.Columns>
         </DataGrid>
+        <Button Grid.Row="2" Command="{Binding AddTaskCommand}" Width="100" Height="50" Content="Add" Margin="48,25,369,25"/>
+        <Button Grid.Row="2" Command="{Binding RemoveTaskCommand}" Width="100" Height="50"  Content="Remove" Margin="361,25,56,25"/>
     </Grid>
 </Window>
