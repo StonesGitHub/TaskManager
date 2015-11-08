@@ -25,6 +25,8 @@ namespace TaskManager
             InitializeComponent();
 
             DataContext = new TaskViewModel();
+
+            string a ="";
         }
     }
 }
