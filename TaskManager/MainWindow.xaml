@@ -14,7 +14,8 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Label Content="Task Manager"/>
-        <DataGrid Grid.Row="1" AutoGenerateColumns="False" DataContext="{Binding TaskCollections}" SelectedItem="{Binding SelectedTask}" ItemsSource="{Binding}">
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" SelectedIndex="{Binding Selectedindex}" RowHeight="50"
+                  SelectedItem="{Binding SelectedTask}" ItemsSource="{Binding TaskCollections}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Task Name" Binding="{Binding TaskName}"/>
                 <DataGridTextColumn Header="Task Note" Width="300" Binding="{Binding TaskNote}"/>

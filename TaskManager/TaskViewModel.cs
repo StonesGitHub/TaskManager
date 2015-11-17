@@ -23,7 +23,12 @@ namespace TaskManager
             set { _taskCollections= value; }
         }
 
-        public TaskItem SelectedTask
+        public object SelectedTask
+        {
+            get; set;
+        }
+
+        public int Selectedindex
         {
             get; set;
         }
@@ -40,13 +45,12 @@ namespace TaskManager
 
         private void AddTask()
         {
-            _taskCollections.Add(new TaskItem { TaskName = "newTask" });
+            _taskCollections.Insert(Selectedindex, new TaskItem { TaskName = "newTask" });
         }
 
         private void RemoveTask()
-        {
-            
-            var obj = SelectedTask;
+        {            
+            _taskCollections.Remove(SelectedTask as TaskItem);
         }
     }
 
